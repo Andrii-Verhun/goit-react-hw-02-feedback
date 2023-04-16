@@ -5,7 +5,7 @@ import css from './FeedbackOptions.module.css';
 export const FeedbackOptions = ({options, onClick}) => {
     return (
         <div>
-            {Object.keys(options).map((el) => (
+            {options.map((el) => (
                 <button
                     onClick={onClick}
                     className={css.button}
@@ -20,10 +20,6 @@ export const FeedbackOptions = ({options, onClick}) => {
 };
 
 FeedbackOptions.propTypes = {
-    options: PropTypes.shape({
-        good: PropTypes.number.isRequired,
-        neutral: PropTypes.number.isRequired,
-        bad: PropTypes.number.isRequired,
-    }),
+    options: PropTypes.arrayOf(PropTypes.string.isRequired),
     onClick: PropTypes.func.isRequired,
 };
